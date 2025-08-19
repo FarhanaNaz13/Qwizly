@@ -88,7 +88,7 @@ class _IntroScreenState extends State<IntroScreen>
     final page = _pages[_currentPage];
 
     return Scaffold(
-      backgroundColor: AppColors.cream,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Column(
         children: [
           Expanded(

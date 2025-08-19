@@ -28,10 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.cream,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
-        child: SvgPicture.asset(
-          QuizzAsset.icons.splash.qwizlyLogo,
+        child: Card(
+          color: AppColors.peachPink,
+          child: SvgPicture.asset(
+            QuizzAsset.icons.splash.qwizlyLogo,
+          ),
         ),
       ),
     );

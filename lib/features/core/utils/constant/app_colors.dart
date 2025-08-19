@@ -103,10 +103,10 @@ class AppColors {
   static const kGreenLightForExchange = Color(0xff32A64F);
   static const kOrangeDashboard = Color(0xFFF7941D);
   static const kLightGreen = Color(0xFFE0F2E5);
-  static const kTrxnLimitHeaderColor = Color(0xFFE7F5E9);
   static const kTableBorderColor = Color(0xFFE1E1E1);
   static const pastelBlue =  Color(0xFFB3E5FC);
   static const pastelPink  =  Color(0xFFF8BBD0);
+  static const peachPink  =  Color(0xFFFFE4E1);
   static const pastelGreen =  Color(0xFFC8E6C9);
 
 }

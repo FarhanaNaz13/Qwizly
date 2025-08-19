@@ -36,6 +36,7 @@ dependencies:
   hive_test: ^1.0.1
   mocktail: ^1.0.4
   bloc_test: ^10.0.0
+  flutter_launcher_icons: ^0.14.4
 
 
 
@@ -54,6 +55,10 @@ flutter_gen:
   output: lib/resource/ # Optional (default: lib/gen/)
   line_length: 80
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/avatar/flappy_purple.png"
 
   assets:
     enabled: true

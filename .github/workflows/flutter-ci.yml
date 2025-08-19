@@ -1,0 +1,36 @@
+name: Flutter CI (FVM)
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  analyze-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup FVM
+        run: |
+          brew tap leoafarias/fvm
+          brew install fvm
+          fvm install 3.27.2
+          fvm global 3.27.2
+
+      - name: Use FVM Flutter
+        run: fvm flutter --version
+
+      - name: Install dependencies
+        run: fvm flutter pub get
+
+      - name: Run Flutter Analyze
+        run: fvm flutter analyze --no-fatal-infos
+
+      - name: Run Flutter Tests
+        run: fvm flutter test --coverage

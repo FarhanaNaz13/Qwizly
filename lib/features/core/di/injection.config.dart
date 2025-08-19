@@ -20,6 +20,8 @@ import 'package:quizz_app/features/friends/presentation/cuibit/points_cubit.dart
     as _i275;
 import 'package:quizz_app/features/friends/share/services/share_services.dart'
     as _i221;
+import 'package:quizz_app/features/home/presentation/screens/cubit/featured_quiz_cubit.dart'
+    as _i420;
 import 'package:quizz_app/features/leader_board/data/datasource/leaderboard_store.dart'
     as _i951;
 import 'package:quizz_app/features/leader_board/presentation/bloc/cubit/leaderboard_cubit.dart'
@@ -73,6 +75,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => registerModule.themeCubit(gh<_i986.Box<dynamic>>()));
     gh.lazySingleton<_i134.QuizCubit>(
         () => registerModule.quizCubit(gh<_i119.QuestionRepository>()));
+    gh.lazySingleton<_i420.FeaturedQuizCubit>(
+        () => registerModule.featuredQuizCubit(gh<_i134.QuizCubit>()));
     return this;
   }
 }

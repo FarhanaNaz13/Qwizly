@@ -37,9 +37,9 @@ class AppDrawer extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Colors.black.withOpacity(0.4),
+                          Colors.black.withAlpha((0.4 * 255).round()),
                           Colors.transparent,
-                          Colors.black.withOpacity(0.6),
+                          Colors.black.withAlpha((0.6 * 255).round()),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -53,10 +53,11 @@ class AppDrawer extends StatelessWidget {
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
                         "Hello Genius!",
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                       ),
                     ),
                   ),

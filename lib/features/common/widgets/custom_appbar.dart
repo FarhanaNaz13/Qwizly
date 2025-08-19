@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizz_app/features/core/utils/constant/app_colors.dart';
-import 'package:quizz_app/features/theme/app_theme.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String titleText;

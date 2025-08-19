@@ -9,7 +9,7 @@ void main() {
 
   setUp(() async {
     await setUpTestHive();
-    Hive.registerAdapter(LeaderboardEntryAdapter()); // generated adapter
+    Hive.registerAdapter(LeaderboardEntryAdapter());
     store = LeaderboardStore();
   });
 

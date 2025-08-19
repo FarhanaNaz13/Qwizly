@@ -11,7 +11,7 @@ class Question with _$Question {
     @Default('General') String category,
     required String question,
     required List<String> options,
-    @JsonKey(name: 'answer_index') required int answerIndex,
+    required int answerIndex,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:quizz_app/features/leader_board/domain/entity/leaderboard_entry.dart';
 import 'package:quizz_app/features/leader_board/presentation/widgets/leaderboard_list_tile.dart';
@@ -38,7 +36,8 @@ class LeaderboardList extends StatelessWidget {
           child: ListView.separated(
             itemCount: entries.length,
             separatorBuilder: (_, __) => const SizedBox(height: 8),
-            itemBuilder: (_, i) => LeaderboardListTile(entry: entries[i], index: i),
+            itemBuilder: (_, i) =>
+                LeaderboardListTile(entry: entries[i], index: i),
           ),
         ),
       ),

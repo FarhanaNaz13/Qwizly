@@ -40,7 +40,7 @@ class PodiumTile extends StatelessWidget {
       case 2:
         return AppColors.pastelPink;
       case 3:
-        return AppColors.pastelBlue!;
+        return AppColors.pastelBlue;
       default:
         return AppColors.blue[200]!;
     }

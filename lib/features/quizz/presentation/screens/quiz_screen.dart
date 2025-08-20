@@ -24,8 +24,9 @@ class QuizScreen extends StatelessWidget {
       onBack: () => _onBack(context),
       body: BlocBuilder<QuizCubit, QuizState>(
         builder: (context, state) {
-          if (state.loading)
+          if (state.loading) {
             return const Center(child: CircularProgressIndicator());
+          }
 
           if (state.finished) {
             WidgetsBinding.instance.addPostFrameCallback((_) {

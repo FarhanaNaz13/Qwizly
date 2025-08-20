@@ -6,7 +6,7 @@ import 'package:quizz_app/resource/assets.gen.dart';
 class QuizHeader extends StatefulWidget {
   final QuizState state;
 
-  const QuizHeader({required this.state});
+  const QuizHeader({super.key, required this.state});
 
   @override
   State<QuizHeader> createState() => _QuizHeaderState();
@@ -33,7 +33,7 @@ class _QuizHeaderState extends State<QuizHeader>
   void didUpdateWidget(covariant QuizHeader oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.state.index != widget.state.index) {
-      _controller.forward(from: 0); // trigger flight on question change
+      _controller.forward(from: 0);
     }
   }
 

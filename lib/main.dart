@@ -65,6 +65,10 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: context.watch<ThemeCubit>().state,
       routerConfig: router.routes,
+      // routeInformationParser: router.routes.routeInformationParser,
+      // routerDelegate: router.routes.routerDelegate,
+      // routeInformationProvider: router.routes.routeInformationProvider,
+
     );
   }
 }

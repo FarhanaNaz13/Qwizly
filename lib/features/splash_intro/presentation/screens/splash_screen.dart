@@ -30,8 +30,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
-        child: Card(
-          color: AppColors.peachPink,
+        child: Container(
+          color: AppColors.lightPeachPink,
           child: SvgPicture.asset(
             QuizzAsset.icons.splash.qwizlyLogo,
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quizz_app/features/core/res/string_res.dart';
 import 'package:quizz_app/features/core/router/router_path.dart';
+import 'package:quizz_app/features/splash_intro/presentation/widgets/animated_flappy.dart';
 import 'package:quizz_app/features/splash_intro/presentation/widgets/next_circle_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:quizz_app/features/core/utils/constant/app_colors.dart';
@@ -98,7 +99,9 @@ class _IntroScreenState extends State<IntroScreen>
               itemCount: _pages.length,
               onPageChanged: (index) => setState(() => _currentPage = index),
               itemBuilder: (_, index) => Center(
-                child: SvgPicture.asset(_pages[index].image),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                    child: SvgPicture.asset(_pages[index].image)),
               ),
             ),
           ),
@@ -150,14 +153,23 @@ class _IntroContent extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: AppColors.dark,
-            ),
-            textAlign: TextAlign.center,
+          Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 4,
+            runAlignment: WrapAlignment.center,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.dark,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              AnimatedFlappy(),
+            ],
           ),
           const SizedBox(height: 12),
           Text(
@@ -207,3 +219,5 @@ class _IntroPageData {
     required this.subtitle,
   });
 }
+
+

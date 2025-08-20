@@ -107,6 +107,7 @@ class AppColors {
   static const pastelBlue =  Color(0xFFB3E5FC);
   static const pastelPink  =  Color(0xFFF8BBD0);
   static const peachPink  =  Color(0xFFFFE4E1);
+  static const lightPeachPink  = Color(0xFFFFE4E1);
   static const pastelGreen =  Color(0xFFC8E6C9);
 
 }

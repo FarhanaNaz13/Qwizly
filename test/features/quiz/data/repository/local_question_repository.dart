@@ -39,13 +39,13 @@ void main() {
     );
 
     final questionEntities = [
-      QuestionEntity(
+      const QuestionEntity(
           question: 'Q1',
           options: ['A', 'B'],
           answerIndex: 0,
           category: 'Math',
           id: 1),
-      QuestionEntity(
+      const QuestionEntity(
           question: 'Q2',
           options: ['C', 'D'],
           answerIndex: 1,

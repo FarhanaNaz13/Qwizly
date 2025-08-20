@@ -11,7 +11,7 @@ class AppTheme {
     ),
     scaffoldBackgroundColor: AppColors.cream,
     cardColor: Colors.white,
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyMedium: TextStyle(color: AppColors.dark),
       bodyLarge: TextStyle(color: AppColors.dark),
       titleLarge: TextStyle(color: AppColors.dark, fontWeight: FontWeight.bold),
@@ -35,7 +35,7 @@ class AppTheme {
     textTheme: TextTheme(
       bodyMedium: TextStyle(color: AppColors.gray[200]),
       bodyLarge: TextStyle(color: AppColors.gray[200]),
-      titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      titleLarge: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       labelMedium: TextStyle(color: AppColors.gray[300]),
     ),
     appBarTheme: const AppBarTheme(

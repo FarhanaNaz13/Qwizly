@@ -11,14 +11,14 @@ void main() {
   late MockQuestionRepository mockRepo;
 
   final questions = [
-    QuestionEntity(
+    const QuestionEntity(
       question: 'Q1',
       options: ['A', 'B', 'C', 'D'],
       answerIndex: 1,
       category: 'Math',
       id: 1,
     ),
-    QuestionEntity(
+    const QuestionEntity(
       question: 'Q2',
       options: ['A', 'B', 'C', 'D'],
       answerIndex: 2,

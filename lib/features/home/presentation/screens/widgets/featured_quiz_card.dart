@@ -127,10 +127,10 @@ class FeaturedQuizCard extends StatelessWidget {
           backgroundImage: AssetImage(QuizzAsset.icons.avatar.avatar.path),
         ),
         const SizedBox(width: 8),
-        Expanded(
+        const Expanded(
           child: Text(
             StringRes.defaultShareMsg,
-            style: const TextStyle(color: Colors.white70),
+            style: TextStyle(color: Colors.white70),
           ),
         ),
         ElevatedButton(

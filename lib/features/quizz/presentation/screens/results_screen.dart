@@ -17,36 +17,50 @@ class ResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final quizState = context.read<QuizCubit>().state;
+    final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
     return RootStack(
       title: StringRes.resultsTitle,
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false, // FAB stays pinned
       onBack: () => context.go(RoutePath.quizCategory),
       enableDrawer: false,
       body: Column(
         children: [
           const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Align(
               alignment: Alignment.topRight,
               child: AnimatedPlayAgainButton(),
             ),
           ),
-          const SizedBox(height: 16),
           Expanded(
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 400),
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.all(16),
-                  child: ResultCard(
-                    score: quizState.score,
-                    total: quizState.total,
-                    onSave: (name) => _saveScore(context, name, quizState),
-                  ),
-                ),
+            child: SafeArea(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    padding: const EdgeInsets.all(16),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: AnimatedPadding(
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeOut,
+                        padding: EdgeInsets.only(bottom: keyboardHeight),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: ResultCard(
+                            score: quizState.score,
+                            total: quizState.total,
+                            onSave: (name) =>
+                                _saveScore(context, name, quizState),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ),
@@ -60,7 +74,26 @@ class ResultsScreen extends StatelessWidget {
     final leaderboardCubit = context.read<LeaderboardCubit>();
     await leaderboardCubit.addScore(name, state.score, state.total);
     if (context.mounted) {
-      rootNavigatorKey.currentContext!.go(RoutePath.leaderBoard, extra: "home");
+      rootNavigatorKey.currentContext!
+          .go(RoutePath.leaderBoard, extra: "home");
     }
   }
 }
+
+
+// Expanded(
+//   child: Center(
+//     child: ConstrainedBox(
+//       constraints: const BoxConstraints(maxWidth: 400),
+//       child: SingleChildScrollView(
+//         physics: const BouncingScrollPhysics(),
+//         padding: const EdgeInsets.all(16),
+//         child: ResultCard(
+//           score: quizState.score,
+//           total: quizState.total,
+//           onSave: (name) => _saveScore(context, name, quizState),
+//         ),
+//       ),
+//     ),
+//   ),
+// ),

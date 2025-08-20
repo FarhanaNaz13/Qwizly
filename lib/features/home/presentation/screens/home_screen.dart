@@ -25,13 +25,13 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 30),
-            GreetingSection(),
+            const SizedBox(height: 30),
+            const GreetingSection(),
             QuizHeader(
               dayName: dayName,
             ),
-            SizedBox(height: 16),
-            QuizzesSection(),
+            const SizedBox(height: 16),
+            const QuizzesSection(),
           ],
         ),
       ),

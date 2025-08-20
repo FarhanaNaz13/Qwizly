@@ -4,6 +4,7 @@ import 'package:quizz_app/features/core/utils/constant/app_colors.dart';
 import 'package:quizz_app/features/quizz/presentation/widgets/result/name_input_field.dart';
 import 'package:quizz_app/features/quizz/presentation/widgets/result/save_button.dart';
 import 'package:quizz_app/features/quizz/presentation/widgets/result/score_avatar.dart';
+
 class ResultCard extends StatefulWidget {
   final int score;
   final int total;
@@ -42,11 +43,12 @@ class _ResultCardState extends State<ResultCard> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 12),
-            ScoreAvatar(),
+            const ScoreAvatar(),
             const SizedBox(height: 16),
             Text(
               StringRes.yourScore,
-              style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+              style: theme.textTheme.titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 6),
             Text(

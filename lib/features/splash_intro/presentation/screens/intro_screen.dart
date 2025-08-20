@@ -100,7 +100,7 @@ class _IntroScreenState extends State<IntroScreen>
               onPageChanged: (index) => setState(() => _currentPage = index),
               itemBuilder: (_, index) => Center(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
                     child: SvgPicture.asset(_pages[index].image)),
               ),
             ),
@@ -168,7 +168,7 @@ class _IntroContent extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              AnimatedFlappy(),
+              const AnimatedFlappy(),
             ],
           ),
           const SizedBox(height: 12),

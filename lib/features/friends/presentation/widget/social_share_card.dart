@@ -21,9 +21,9 @@ class SocialShareCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(height: 24),
-          Text(
+          const Text(
             StringRes.shareTitle,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
               color: AppColors.kOrangeDashboard,

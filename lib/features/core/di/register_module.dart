@@ -4,6 +4,7 @@ import 'package:quizz_app/features/core/utils/constant/constant.dart';
 import 'package:quizz_app/features/core/utils/constant/keys.dart';
 import 'package:quizz_app/features/friends/domain/repository/points_repository.dart';
 import 'package:quizz_app/features/friends/presentation/cuibit/points_cubit.dart';
+import 'package:quizz_app/features/home/presentation/screens/cubit/featured_quiz_cubit.dart';
 import 'package:quizz_app/features/leader_board/data/datasource/leaderboard_store.dart';
 import 'package:quizz_app/features/leader_board/presentation/bloc/cubit/leaderboard_cubit.dart';
 import 'package:quizz_app/features/quizz/domain/repository/question_repository.dart';
@@ -19,8 +20,11 @@ abstract class RegisterModule {
   }
 
   @lazySingleton
-  QuizCubit quizCubit(QuestionRepository repo) =>
-      QuizCubit(repo, perQuestionSeconds: Constant.perQuestionSeconds);
+  QuizCubit quizCubit(QuestionRepository repo) {
+    final cubit = QuizCubit(repo, perQuestionSeconds: Constant.perQuestionSeconds);
+    cubit.start();
+    return cubit;
+  }
 
   @lazySingleton
   ThemeCubit themeCubit(Box box) => ThemeCubit(box);
@@ -30,7 +34,10 @@ abstract class RegisterModule {
       LeaderboardCubit(store)..load();
 
   @lazySingleton
-  PointsCubit pointCubit(PointsRepository repo) =>
-      PointsCubit(repo);
+  PointsCubit pointCubit(PointsRepository repo) => PointsCubit(repo);
+
+  @lazySingleton
+  FeaturedQuizCubit featuredQuizCubit(QuizCubit quizCubit) =>
+      FeaturedQuizCubit(quizCubit: quizCubit);
 
 }

@@ -22,7 +22,7 @@ class QuizTypeWidget extends StatelessWidget {
                 itemCount: quizzes.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       bottom: 12,
                     ),
                     child: QuizCard(

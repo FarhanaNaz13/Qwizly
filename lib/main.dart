@@ -10,6 +10,7 @@ import 'package:quizz_app/features/theme/cubit/theme_cubit.dart';
 
 import 'features/core/router/app_router.dart';
 import 'features/core/utils/constant/keys.dart';
+import 'features/home/presentation/screens/cubit/featured_quiz_cubit.dart';
 import 'features/leader_board/domain/entity/leaderboard_entry.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -24,6 +25,7 @@ Future<void> main() async {
   final quizCubit = getIt<QuizCubit>();
   final leaderboardCubit = getIt<LeaderboardCubit>();
   final pointsCubit = getIt<PointsCubit>();
+  final featuredQuizCubit = getIt<FeaturedQuizCubit>();
 
   final questionsNotifier = ValueNotifier(quizCubit.state.questions.isEmpty);
   quizCubit.stream.listen((state) {
@@ -42,6 +44,7 @@ Future<void> main() async {
         BlocProvider.value(value: quizCubit),
         BlocProvider.value(value: leaderboardCubit),
         BlocProvider.value(value: pointsCubit),
+        BlocProvider.value(value: featuredQuizCubit),
       ],
       child: MyApp(router: appRouter),
     ),
@@ -62,6 +65,10 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: context.watch<ThemeCubit>().state,
       routerConfig: router.routes,
+      // routeInformationParser: router.routes.routeInformationParser,
+      // routerDelegate: router.routes.routerDelegate,
+      // routeInformationProvider: router.routes.routeInformationProvider,
+
     );
   }
 }

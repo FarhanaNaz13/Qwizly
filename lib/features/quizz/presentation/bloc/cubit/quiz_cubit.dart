@@ -85,4 +85,5 @@ class QuizCubit extends Cubit<QuizState> {
     _stopTimer();
     return super.close();
   }
+
 }

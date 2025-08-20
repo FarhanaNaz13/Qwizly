@@ -26,7 +26,14 @@ class ThemeCubit extends Cubit<ThemeMode> {
   void toggleTheme() {
     final newMode = state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     emit(newMode);
-    _box.put(
-        _key, newMode == ThemeMode.dark ? StringRes.dark : StringRes.light);
+    _box.put(_key, newMode == ThemeMode.dark ? StringRes.dark : StringRes.light);
   }
+
+  Box get box => _box;
+
+  String get themeString => switch (state) {
+    ThemeMode.dark => StringRes.dark,
+    ThemeMode.light => StringRes.light,
+    ThemeMode.system => StringRes.system,
+  };
 }

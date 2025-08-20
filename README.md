@@ -1,4 +1,5 @@
 # Qwizly- Flutter Quiz App 🎯
+[![Demo Video](https://img.shields.io/badge/Watch%20Demo-%F0%9F%8E%A5-red)](https://drive.google.com/file/d/1K0a3aoPbwzfi1tlJ7xtvHwwLryGUQ1e-/view?usp=sharing)
 
 **Flutter Version:** 3.27.2 (via FVM)
 **Dart Version:** 3.6.1
@@ -36,9 +37,8 @@ A **feature-rich, offline quiz application** built in Flutter, demonstrating cle
 
 ## 📸 App Screenshots
 
-##  App Screenshots
-
 <p align="center">
+  <!-- First 20 screenshots as inline images -->
   <a href="https://drive.google.com/uc?export=view&id=1JVWyHrmPqaNg3c6mWtll8K5SyldArocU"><img src="https://drive.google.com/uc?export=view&id=1JVWyHrmPqaNg3c6mWtll8K5SyldArocU" width="200" /></a>
   <a href="https://drive.google.com/uc?export=view&id=1J_F0pMzD79f_SbcgkspR_BeKyygLFA8r"><img src="https://drive.google.com/uc?export=view&id=1J_F0pMzD79f_SbcgkspR_BeKyygLFA8r" width="200" /></a>
   <a href="https://drive.google.com/uc?export=view&id=1JaFbGyOnYu-dwBafTh3xDzg0-IRKQ5O0"><img src="https://drive.google.com/uc?export=view&id=1JaFbGyOnYu-dwBafTh3xDzg0-IRKQ5O0" width="200" /></a>

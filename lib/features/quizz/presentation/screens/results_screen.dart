@@ -9,6 +9,7 @@ import 'package:quizz_app/features/core/router/router_path.dart';
 import 'package:quizz_app/features/core/utils/constant/app_colors.dart';
 import 'package:quizz_app/features/leader_board/presentation/bloc/cubit/leaderboard_cubit.dart';
 import 'package:quizz_app/features/quizz/presentation/bloc/cubit/quiz_cubit.dart';
+import 'package:quizz_app/features/quizz/presentation/widgets/animated_play_again_button.dart';
 
 class ResultsScreen extends StatefulWidget {
   const ResultsScreen({super.key});
@@ -29,30 +30,38 @@ class _ResultsScreenState extends State<ResultsScreen> {
       resizeToAvoidBottomInset: false,
       onBack: () => context.go(RoutePath.quizCategory),
       enableDrawer: false,
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 400),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: _ResultCard(
-                score: state.score,
-                total: state.total,
-                controller: _controller,
-                onSave: (name) async {
-                  final leaderboardCubit = context.read<LeaderboardCubit>();
-                  await leaderboardCubit.addScore(
-                      name, state.score, state.total);
-                  if (mounted) {
-                    rootNavigatorKey.currentContext!
-                        .go(RoutePath.leaderBoard, extra: "home");
-                  }
-                },
+      body: Column(
+        children: [
+          const SizedBox(height: 16),
+          Align(
+              alignment: Alignment.topRight, child: AnimatedPlayAgainButton()),
+          const SizedBox(height: 16),
+          Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 400),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: _ResultCard(
+                    score: state.score,
+                    total: state.total,
+                    controller: _controller,
+                    onSave: (name) async {
+                      final leaderboardCubit = context.read<LeaderboardCubit>();
+                      await leaderboardCubit.addScore(
+                          name, state.score, state.total);
+                      if (mounted) {
+                        rootNavigatorKey.currentContext!
+                            .go(RoutePath.leaderBoard, extra: "home");
+                      }
+                    },
+                  ),
+                ),
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -77,15 +86,17 @@ class _ResultCard extends StatelessWidget {
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const SizedBox(height: 12),
             CircleAvatar(
-              radius: 36,
+              radius: 32,
               backgroundColor: AppColors.purple.withValues(alpha: 0.1),
-              child: const Icon(Icons.emoji_events,
-                  size: 40, color: AppColors.purple),
+              child: Icon(Icons.emoji_events,
+                  size: 32, color: AppColors.purpleCom[300]!),
             ),
             const SizedBox(height: 16),
             Text(
@@ -97,20 +108,19 @@ class _ResultCard extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               "$score / $total",
-              style: const TextStyle(
-                fontSize: 32,
+              style: TextStyle(
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: AppColors.purple,
+                color: AppColors.purpleCom[800],
               ),
             ),
             const SizedBox(height: 20),
             TextField(
               controller: controller,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
               decoration: InputDecoration(
                 hintText: StringRes.enterName,
                 filled: true,
-                fillColor: Colors.grey[100],
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -131,7 +141,8 @@ class _ResultCard extends StatelessWidget {
                   );
                 }
               },
-            )
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

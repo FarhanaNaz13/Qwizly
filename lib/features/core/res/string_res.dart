@@ -59,6 +59,7 @@ class StringRes {
   static const peopleJoin = "People join";
   static const player = "Player";
   static const close = "Close";
+  static const playAgain = "Play Again";
 
   //alert
   static const skipAlert = "Skip the test?";

@@ -138,7 +138,13 @@ fvm flutter run
 ## What’s Skipped / Future Work
 
 * Online API integration (currently local JSON data)
-* User authentication/login
+* User authentication / login
 * Push notifications
 * Some advanced UI enhancements
 * Full test coverage (some unit tests exist, but not exhaustive)
+* Refactor hardcoded colors into `AppColors` / `ThemeData`
+* Replace magic numbers with constants for readability
+* Add accessibility features (semantics labels for images/icons)
+* Reduce code duplication in layered containers (helper methods)
+* Improve responsiveness (avoid fixed heights like 250)
+* Finalize button interactions (decorative vs functional)

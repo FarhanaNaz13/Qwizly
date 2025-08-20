@@ -20,13 +20,13 @@ class LeaderboardList extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.white.withValues(alpha: 180),
-              blurRadius: 30,
+              blurRadius: 15,
               spreadRadius: 5,
               offset: const Offset(0, 0),
             ),
             BoxShadow(
               color: Colors.white.withValues(alpha: 26),
-              blurRadius: 8,
+              blurRadius: 4,
               offset: const Offset(0, 2),
             ),
           ],
